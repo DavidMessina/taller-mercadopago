@@ -9,12 +9,35 @@ module.exports = {
     home: (req, res) => {
         return res.render("index");
     },
+
     detail: (req, res) => {
         return res.render("detail", { ...req.query });
     },
 
+    callback: (req, res) => {
+        console.log(req.query)
+
+        if (req.query.status.includes ('success')){
+            return res.render ('success')
+        }
+
+        if (req.query.status.includes ('pending')){
+            return res.render ('pending')
+        }
+
+        if (req.query.status.includes ('failure')){
+            return res.render ('failure')
+        }
+    },
+
+    notifications : (req, res) => {
+        console.log(req.body);
+        res.status(200).end('ok')
+    },
+
     comprar: (req, res) => {
 
+        
         let item = {
             id : 1,
             picture_url : '',
@@ -25,6 +48,16 @@ module.exports = {
         }
 
         let preference = {
+
+            back_urls : {
+                success : 'http://localhost:3000/callback?status=success',
+                success : 'http://localhost:3000/callback?status=pending',
+                success : 'http://localhost:3000/callback?status=failure',
+            },
+
+            notification_url : 'http://localhost:3000/notifications',
+
+            auto_return : 'approved',
 
             payment_methods : {
                 
@@ -63,14 +96,14 @@ module.exports = {
             items : [
                 {
 
-                    id : '',
-                    title : '',
-                    description : '',
+                    id : 1234,
+                    title : 'Nombre del producto',
+                    description : 'Dispositivo móvil de Tienda e-commerce',
                     picture_url : '',
                     category_id : '', /*Identificador de la categoría del ítem.*/
-                    quantity: 3,
+                    quantity: Number (1),
                     currency_id: 'ARS', /*Identificador de moneda en formato ISO_4217*/
-                    unit_price: 1500 /*Precio unitario*/
+                    unit_price: Number (1500) /*Precio unitario*/
  
                 }
             ]
