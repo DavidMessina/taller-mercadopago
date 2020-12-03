@@ -51,8 +51,8 @@ module.exports = {
 
             back_urls : {
                 success : 'https://certifmercadopago.herokuapp.com/callback?status=success',
-                success : 'https://certifmercadopago.herokuapp.com/callback?status=pending',
-                success : 'https://certifmercadopago.herokuapp.com/callback?status=failure',
+                pending : 'https://certifmercadopago.herokuapp.com/callback?status=pending',
+                failure : 'https://certifmercadopago.herokuapp.com/callback?status=failure',
             },
 
             notification_url : 'https://certifmercadopago.herokuapp.com/notifications',
