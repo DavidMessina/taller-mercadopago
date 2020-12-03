@@ -50,12 +50,12 @@ module.exports = {
         let preference = {
 
             back_urls : {
-                success : 'http://localhost:3000/callback?status=success',
-                success : 'http://localhost:3000/callback?status=pending',
-                success : 'http://localhost:3000/callback?status=failure',
+                success : 'https://certifmercadopago.herokuapp.com/callback?status=success',
+                success : 'https://certifmercadopago.herokuapp.com/callback?status=pending',
+                success : 'https://certifmercadopago.herokuapp.com/callback?status=failure',
             },
 
-            notification_url : 'http://localhost:3000/notifications',
+            notification_url : 'https://certifmercadopago.herokuapp.com/notifications',
 
             auto_return : 'approved',
 
